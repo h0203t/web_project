@@ -27,4 +27,3 @@ replay_pid*
 /javaprogram/
 # 이클립스 실행 환경
 /.classpath
-/target/
