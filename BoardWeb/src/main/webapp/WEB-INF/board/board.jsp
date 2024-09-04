@@ -7,7 +7,6 @@
 
 <h3>글 상세 페이지</h3>
 <table class="table table-striped-columns">
-
 	<tr>
 		<th>글번호</th>
 		<td>${board.boardNo}</td>

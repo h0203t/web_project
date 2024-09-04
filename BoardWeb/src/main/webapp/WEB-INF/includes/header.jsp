@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,6 +23,15 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="addForm.do">회원가입</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberList.do">회원목록</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="boardList.do">게시판목록</a>
+                    <p>${logid}</p>
+                    <c:choose>
+                    	<c:when test="${empty logid }">                    	
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="LoginForm.do">로그인화면</a>
+                    	</c:when>
+                    <c:otherwise>                    
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="LoginForm.do">로그아웃</a>
+                    </c:otherwise> 	
+                	</c:choose>
                 </div>
             </div>
             <!-- Page content wrapper-->

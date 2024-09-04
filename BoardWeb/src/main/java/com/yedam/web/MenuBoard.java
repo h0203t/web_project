@@ -6,6 +6,7 @@ import java.util.Map;
 import com.yedam.common.Control;
 import com.yedam.control.board.BoardControl;
 import com.yedam.control.board.BoardListControl;
+import com.yedam.control.board.BoardModifyControl;
 import com.yedam.control.member.AddFormControl;
 import com.yedam.control.member.AddMemberControl;
 import com.yedam.control.member.GetMemberControl;
@@ -30,6 +31,7 @@ public class MenuBoard {
 		// 기능등록.
 		menu.put("/boardList.do", new BoardListControl());
 		menu.put("/getBoard.do", new BoardControl());
+		menu.put("/modifyBoard", new BoardModifyControl());
 		
 
 		return menu;
