@@ -1,4 +1,4 @@
-package com.yedam.control;
+package com.yedam.control.member;
 
 import java.io.IOException;
 
@@ -11,21 +11,21 @@ import com.yedam.service.MemberService;
 import com.yedam.service.MemberServiceImpl;
 import com.yedam.vo.MemberVO;
 
-public class RemoveMemberControl implements Control {
+public class ModifyFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//회원아이디 파라미터: id
 		String id = request.getParameter("id");
 		
+		//조회한 정보를 jsp 전달
 		MemberService svc = new MemberServiceImpl();
+		MemberVO mvo = svc.getMember(id);
 		
-		if(svc.removeMember(id)) {
-			response.sendRedirect("memberList.do");
-		} else {
-			request.getRequestDispatcher("WEB-INF/html/memberList.jsp").forward(request, response);
-		}
+		request.setAttribute("memberInfo", mvo);
 		
+		request.getRequestDispatcher("WEB-INF/html/modifyForm.jsp").forward(request, response);
+
 	}
 
 }

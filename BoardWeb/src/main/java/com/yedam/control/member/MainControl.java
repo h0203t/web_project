@@ -1,15 +1,15 @@
-package com.yedam.control;
+package com.yedam.control.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
 
-public class SubControl implements Control {
+public class MainControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("서브컨트롤 실행.");
+		System.out.println("메인컨트롤 실행.");
 	}
 
 }

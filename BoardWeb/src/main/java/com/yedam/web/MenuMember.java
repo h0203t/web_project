@@ -4,16 +4,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.yedam.common.Control;
-import com.yedam.control.AddFormControl;
-import com.yedam.control.AddMemberControl;
-import com.yedam.control.GetMemberControl;
-import com.yedam.control.IntroControl;
-import com.yedam.control.MainControl;
-import com.yedam.control.MemberListControl;
-import com.yedam.control.ModifyFormControl;
-import com.yedam.control.ModifyMemberControl;
-import com.yedam.control.RemoveMemberControl;
-import com.yedam.control.SubControl;
+import com.yedam.control.member.AddFormControl;
+import com.yedam.control.member.AddMemberControl;
+import com.yedam.control.member.GetMemberControl;
+import com.yedam.control.member.IntroControl;
+import com.yedam.control.member.MainControl;
+import com.yedam.control.member.MemberListControl;
+import com.yedam.control.member.ModifyFormControl;
+import com.yedam.control.member.ModifyMemberControl;
+import com.yedam.control.member.RemoveMemberControl;
+import com.yedam.control.member.SubControl;
 
 public class MenuMember {
 	private static MenuMember instance = new MenuMember();
