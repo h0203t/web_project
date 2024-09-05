@@ -18,10 +18,10 @@
 	</select>
 
 	<insert id="insertBoard" parameterType="board">
-		insert into tb1_board
-		(board_no, title, content, writer)
-		values (board_seg.nextval, #{title},
-		#{content}, #{writer})
+		insert into
+		tb1_board(board_no, title, content, writer, image)
+		values
+		(board_seg.nextval, #{title},#{content}, #{writer}, #{image})
 	</insert>
 
 	<update id="updateBoard" parameterType="board">
@@ -49,29 +49,55 @@
 		content,
 		writer,
 		view_count,
-		creation_date
-		from tb1_board
+		creation_date,
+		image
+		from
+		tb1_board
 		where
 		board_no = #{boardNo}
 	</select>
 
 	<select id="selectListPaging" resultType="board"
-		parameterType="int">
+		parameterType="com.yedam.common.SearchDTO">
 		select c.*
 		from(
 		select rownum rn, b.*
 		from (select *
 		from tb1_board
+		where
+		<choose>
+			<when test='searchChondition == "T" '>
+				title like '%'||#{keyword}||'%'
+			</when>
+			<when test='searchChondition == "W" '>
+				writer like '%'||#{keyword}||'%'
+			</when>
+			<otherwise>
+				title like '%'||#{keyword}||'%' or writer like
+				'%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
 		order by board_no desc) b
 		          <![CDATA[
 		          where rownum <= #{page} * 5) c
 		          ]]>
 		where c.rn > (#{page} -1 ) * 5
 	</select>
-	
-	<select id="selectCount" resultType="int">
+
+	<select id="selectCount" resultType="int" parameterType="com.yedam.common.SearchDTO">
 		select count(1)
 		from tb1_board
+		where
+		<choose>
+			<when test='searchChondition == "T" '>
+				title like '%'||#{keyword}||'%'
+			</when>
+			<when test='searchChondition == "W" '>
+				writer like '%'||#{keyword}||'%'
+			</when>
+			<otherwise>
+				title like '%'||#{keyword}||'%' or writer like'%'||#{keyword}||'%'
+			</otherwise>
+		</choose>
 	</select>
-
 </mapper>

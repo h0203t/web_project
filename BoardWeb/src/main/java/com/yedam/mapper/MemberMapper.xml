@@ -37,6 +37,16 @@
 		where  member_id = #{memberId}
 	</select>
 	
+	<select id="loginMember" resultType="com.yedam.vo.MemberVO">
+			   select member_id,
+		       member_name,
+		       email,
+		       creation_date
+		from   tb1_member
+		where  member_id = #{id}
+		and    password = #{pw}
+	</select>
+	
 
 
 

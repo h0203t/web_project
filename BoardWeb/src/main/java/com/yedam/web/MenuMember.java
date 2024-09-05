@@ -10,6 +10,7 @@ import com.yedam.control.member.GetMemberControl;
 import com.yedam.control.member.IntroControl;
 import com.yedam.control.member.LoginControl;
 import com.yedam.control.member.LoginFormControl;
+import com.yedam.control.member.LogoutControl;
 import com.yedam.control.member.MainControl;
 import com.yedam.control.member.MemberListControl;
 import com.yedam.control.member.ModifyFormControl;
@@ -41,6 +42,9 @@ public class MenuMember {
 		
 		menu.put("/LoginForm.do", new LoginFormControl());
 		menu.put("/login.do", new LoginControl());
+		menu.put("/logout.do", new LogoutControl());
+		
+		
 		
 		return menu;
 	}

@@ -11,4 +11,6 @@ public interface MemberService {
 	boolean removeMember(String memberId); // 삭제
 	boolean modifyMember(MemberVO member); // 수정
 	MemberVO getMember(String memberId);
+	
+	MemberVO loginCheck(String id, String pw);
 }
