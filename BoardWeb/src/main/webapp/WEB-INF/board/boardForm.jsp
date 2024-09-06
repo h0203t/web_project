@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
-<jsp:include page="../includes/header.jsp"></jsp:include>
 <h3>등록화면</h3>
 <form action="addBoard.do" method="post" enctype="multipart/form-data">
 <input type="hidden" name="writer" value="${logid }" />
@@ -35,4 +34,3 @@
 
 </body>
 </html>
-<jsp:include page="../includes/footer.jsp"></jsp:include>

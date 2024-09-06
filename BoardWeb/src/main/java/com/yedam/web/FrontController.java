@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.control.JavaScriptControl;
 import com.yedam.control.member.AddFormControl;
 import com.yedam.control.member.AddMemberControl;
 import com.yedam.control.member.GetMemberControl;
@@ -23,7 +24,7 @@ import com.yedam.control.member.ModifyMemberControl;
 import com.yedam.control.member.RemoveMemberControl;
 import com.yedam.control.member.SubControl;
 
-@WebServlet("*.do")
+//@WebServlet("*.do")
 public class FrontController extends HttpServlet {
 
 	// url pattern - 실행되는 기능 -> map 컬렉션에 지정.
@@ -38,6 +39,7 @@ public class FrontController extends HttpServlet {
 		map.put("/main.do", new MainControl());
 		map.put("/sub.do", new SubControl());
 		map.put("/intro.do", new IntroControl());
+		map.put("/javascript.do", new JavaScriptControl());
 
 		Map<String, Control> memberMenu = MenuMember.getInstance().menuMap();
 		Map<String, Control> boardMenu = MenuBoard.getInstance().menuMap();

@@ -4,7 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<jsp:include page="../includes/header.jsp"></jsp:include>
 
 <h3>글 상세 페이지</h3>
 <p>searchChondition : ${sc }, keyword: ${kw }</p>
@@ -60,12 +59,5 @@
 		document.forms.actForm.submit();
 	}
 </script>
-
-
-
-
 </body>
 </html>
-
-
-<jsp:include page="../includes/footer.jsp"></jsp:include>

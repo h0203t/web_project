@@ -23,7 +23,7 @@ public class ModifyBoardFormControl implements Control {
 		
 		request.setAttribute("board", board);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/board/modifyBoard.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("board/modifyBoard.tiles");
 		rd.forward(request, response);
 		
 	}

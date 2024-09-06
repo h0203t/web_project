@@ -41,7 +41,8 @@
 			   select member_id,
 		       member_name,
 		       email,
-		       creation_date
+		       creation_date,
+		       authority
 		from   tb1_member
 		where  member_id = #{id}
 		and    password = #{pw}

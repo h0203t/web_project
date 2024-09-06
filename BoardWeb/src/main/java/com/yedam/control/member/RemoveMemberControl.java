@@ -23,7 +23,7 @@ public class RemoveMemberControl implements Control {
 		if(svc.removeMember(id)) {
 			response.sendRedirect("memberList.do");
 		} else {
-			request.getRequestDispatcher("WEB-INF/html/memberList.jsp").forward(request, response);
+			request.getRequestDispatcher("html/memberList.tiles").forward(request, response);
 		}
 		
 	}
