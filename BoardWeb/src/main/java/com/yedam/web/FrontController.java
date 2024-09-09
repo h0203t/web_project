@@ -43,10 +43,12 @@ public class FrontController extends HttpServlet {
 
 		Map<String, Control> memberMenu = MenuMember.getInstance().menuMap();
 		Map<String, Control> boardMenu = MenuBoard.getInstance().menuMap();
+		Map<String, Control> replyMenu = MenuReply.getInstance().menuMap();
 		
 		
 		map.putAll(memberMenu); //멤버관련 메뉴
 		map.putAll(boardMenu); //멤버관련 메뉴
+		map.putAll(replyMenu);
 		
 	}
 
