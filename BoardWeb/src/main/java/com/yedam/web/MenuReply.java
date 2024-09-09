@@ -31,7 +31,6 @@ public class MenuReply {
 		//등록컨트롤
 		menu.put("/addReply.do", new AddReplyControl());
 		
-
 		return menu;
 	}
 }

@@ -12,5 +12,6 @@ public interface ReplyMapper {
 	//다건 삭제.
 	int deleteReplys(String[] array);
 	//댓글등록
-	int addReply(ReplyVO replyVO);
+	int selectKey();
+	int insertReply(ReplyVO rvo);
 }

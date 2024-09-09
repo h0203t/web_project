@@ -22,9 +22,14 @@
 		where reply_no = #{rno}
 	</delete>
 
-	<insert id="addReply" parameterType="com.yedam.vo.ReplyVO">
-		INSERT INTO tb1_reply (reply_no, replyer, reply, board_no)
-		VALUES (reply_seq.nextval, #{replyer}, #{reply}, #{boardNo})
+	<select id="selectKey" resultType="int">
+		select reply_seq.nextval
+		from dual
+	</select>
+
+	<insert id="insertReply" parameterType="com.yedam.vo.ReplyVO">
+		insert into tb1_reply (reply_no, replyer, reply, board_no)
+		values (#{replyNo}, #{replyer}, #{reply}, #{boardNo})
 	</insert>
 	<!-- <delete id="deleteReplys" parameterType="String"> delete from tb1_reply 
 		where reply_no in <foreach collection="array" item="reply" open="( " separator 

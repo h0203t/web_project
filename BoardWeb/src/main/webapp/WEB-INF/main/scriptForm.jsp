@@ -45,7 +45,7 @@
 <table class="table">
   <tr>
     <td>댓글내용 : <input type="text" id="reply"></td>
-    <td><button id="addReply" class="addReply" id ="addReply">댓글등록</button>
+    <td><button id="addReply">댓글등록</button>
   </tr>
 </table>
 

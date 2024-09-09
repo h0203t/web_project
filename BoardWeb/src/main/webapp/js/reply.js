@@ -77,13 +77,14 @@ function deleteSelected() {
 document.querySelector('#addReply').addEventListener('click', function() {
 	let reply = document.querySelector('#reply').value;
 	const addHtp = new XMLHttpRequest();
-	addHtp.open('get', 'addReply.do?bno='+bno+'&reply='+reply + '&replyer=' + replyer);
+	addHtp.open('get', 'addReply.do?bno=' + bno + '&reply=' + reply + '&replyer=' + replyer);
 	addHtp.send();
-	addHtp.onload = function(){
+	addHtp.onload = function() {
 		let result = JSON.parse(addHtp.responseText);
-		console.log(result);
+		console.log(result); // retCode, retVal=>{}
 		let tr = makeRow(result.retVal);
 		document.querySelector('.list').appendChild(tr);
+
 	}
 })
 

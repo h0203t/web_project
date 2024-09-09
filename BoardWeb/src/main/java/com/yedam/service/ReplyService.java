@@ -7,5 +7,5 @@ import com.yedam.vo.ReplyVO;
 public interface ReplyService {
 	List<ReplyVO> replyList(int bno);// 목록
 	boolean removeReply(int rno); // 삭제
-	boolean addReply(ReplyVO replyVO);
+	boolean addReply(ReplyVO rvo);
 }
