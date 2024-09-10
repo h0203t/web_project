@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.yedam.common.Control;
 import com.yedam.service.ReplyService;
 import com.yedam.service.ReplyServiceImpl;
@@ -35,6 +37,10 @@ public class replyListControl implements Control {
 			}
 		}
 		json += "]";
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		json = gson.toJson(list);
+		
 		response.getWriter().print(json);
 	}
 

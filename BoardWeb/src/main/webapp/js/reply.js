@@ -82,8 +82,12 @@ document.querySelector('#addReply').addEventListener('click', function() {
 	addHtp.onload = function() {
 		let result = JSON.parse(addHtp.responseText);
 		console.log(result); // retCode, retVal=>{}
-		let tr = makeRow(result.retVal);
-		document.querySelector('.list').appendChild(tr);
+		if(result.retCode == 'OK'){		
+			let tr = makeRow(result.retVal);
+			document.querySelector('.list').appendChild(tr);
+		} else {
+			console.log('삭제 불가X')
+		}
 
 	}
 })
