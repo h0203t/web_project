@@ -14,12 +14,11 @@ div.reply ul {
 }
 
 div.reply span {
-	display: inline-block;
+	display: inline-block	;
 }
 </style>
 
-<link rel="stylesheet"
-	href="//cdn.datatables.net/2.1.5/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" href="//cdn.datatables.net/2.1.5/css/dataTables.dataTables.min.css">
 <script src="js/jquery-3.7.1.js"></script>
 <script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
 
@@ -72,27 +71,42 @@ div.reply span {
 </div>
 
 <!-- 댓글관리 -->
+<div class="container reply">
+	<!-- 댓글등록 -->
+	<div class="header">
+	  <input type="text" id="reply" class="col-sm-08">
+	  <button id="addReply" class="btn btn-primary">등록</button>
+	</div>
 
-<table id="example" class="display" style="width: 100%">
-	<thead>
-		<tr>
-			<th>댓글번호</th>
-			<th>내용</th>
-			<th>작성자</th>
-			<th>작성일시</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-			<th>댓글번호</th>
-			<th>내용</th>
-			<th>작성자</th>
-			<th>작성일시</th>
-		</tr>
-	</tfoot>
-</table>
+	<!-- 댓글목록 -->
+	<div class="content">
+		<ul>
+			<li><span class="col-sm-2">글번호</span> <span class="col-sm-5">댓글내용</span>
+				<span class="col-sm-2">작성자</span> <span class="col-sm-2">삭제</span></li>
+			<li>
+				<hr />
+			</li>
+			<li id="template"><span class="col-sm-2">24</span> <span
+				class="col-sm-5">테스트입니다.</span> <span class="col-sm-2">user01</span>
+				<span class="col-sm-2"><button class="btn btn-danger">삭제</button></span></li>
+		</ul>
+	</div>
+</div>
 
 <!-- 댓글페이지 -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link" >Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
 
 <script>
 	const bno = '${board.boardNo}'; //원본 글번호
@@ -104,7 +118,8 @@ div.reply span {
 		document.forms.actForm.submit();
 	}
 </script>
-<script src="js/boardTable.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="js/replyService.js"></script>
+<script src="js/replyBoard.js"></script>
 

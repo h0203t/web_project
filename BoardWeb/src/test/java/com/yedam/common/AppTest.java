@@ -1,19 +1,19 @@
 package com.yedam.common;
 
-import com.yedam.service.ReplyService;
-import com.yedam.service.ReplyServiceImpl;
-import com.yedam.vo.ReplyVO;
+import org.apache.ibatis.session.SqlSession;
+
+import com.yedam.mapper.ReplyMapper;
 
 public class AppTest {
 	public static void main(String[] args) {
-		ReplyService svc = new ReplyServiceImpl();
-//		svc.replyList(148).forEach(reply -> System.out.println(reply));
+		SqlSession sqlSession = DataSource.getInstance().openSession(true);
+		ReplyMapper mapper = sqlSession.getMapper(ReplyMapper.class);
 		
-		ReplyVO replyVO = new ReplyVO();
-		replyVO.setReplyer("user01");
-		replyVO.setBoardNo(Integer.parseInt("148"));
-		replyVO.setReply("안녕하세요01");
-		
-		svc.addReply(replyVO);
+		SearchDTO search = new SearchDTO();
+		search.setBoardNo(148);
+		search.setPage(1);
+
+		mapper.selectListPageing(search)
+		.forEach(reply -> System.out.println(reply.toString()));
 	}
 }

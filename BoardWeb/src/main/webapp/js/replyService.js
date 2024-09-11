@@ -46,6 +46,7 @@ function makeRow(reply = {}) {
 		if (field == 'replyDate') {
 			let today = new Date(reply[field]); // 날짜문자 -> 날짜객체.dateFormet()출력
 			td.innerHTML = today.dateFormet();
+			
 		} else {
 			td.innerHTML = reply[field];
 		}
@@ -65,8 +66,8 @@ function makeRow(reply = {}) {
 
 //서비스, 메소드를 통해서 ajax 기능을 실행
 const svc = {
-	replyList: function(bno = 1, successCallBack, errorCallBack) {
-		fetch('replyList.do?bno=' + bno)
+	replyList: function(param = { bno: 1, page: 1 }, successCallBack, errorCallBack) {
+		fetch('replyList.do?bno=' + param.bno + '&page=' + param.page)
 			.then(resolve => resolve.json())
 			.then(successCallBack)
 			.catch(errorCallBack)
@@ -86,8 +87,17 @@ const svc = {
 			.then(resolve => resolve.json())
 			.then(successCallBack)
 			.catch(errorCallBack)
+	},
+	replyRagingCount(bno = 1, successCallBack, errorCallBack) {
+		fetch('replyCount.do?bno=' + bno)
+			.then(resolve => resolve.json())
+			.then(successCallBack)
+			.catch(errorCallBack)
 	}
+
 }
+
+
 
 
 

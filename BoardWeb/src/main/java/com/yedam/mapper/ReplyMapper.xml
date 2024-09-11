@@ -17,6 +17,19 @@
 		reply_no
 	</select>
 
+	<select id="selectListPageing" parameterType="com.yedam.common.SearchDTO">
+		select b.*
+		from (
+		select /* INDEX (r PK_REPLY) */ rownum rn, r.*
+		from tb1_reply r
+		where board_no = #{boardNo}) b
+		<![CDATA[
+		where b.rn <= #{page} * 5
+		]]>
+		and b.rn > (#{page} -1) * 5
+
+	</select>
+
 	<delete id="deleteReply" parameterType="int">
 		delete from tb1_reply
 		where reply_no = #{rno}
@@ -24,13 +37,26 @@
 
 	<select id="selectKey" resultType="int">
 		select reply_seq.nextval
-		from dual
+		from
+		dual
 	</select>
 
 	<insert id="insertReply" parameterType="com.yedam.vo.ReplyVO">
-		insert into tb1_reply (reply_no, replyer, reply, board_no)
-		values (#{replyNo}, #{replyer}, #{reply}, #{boardNo})
+		insert into tb1_reply
+		(reply_no, replyer, reply, board_no)
+		values (#{replyNo}, #{replyer},
+		#{reply}, #{boardNo})
 	</insert>
+	
+	<select id="selectReplyCount" parameterType="int">
+		select count(1)
+		from tb1_reply
+		where board_no = #{bno}
+	</select>
+	
+	
+	
+	
 	<!-- <delete id="deleteReplys" parameterType="String"> delete from tb1_reply 
 		where reply_no in <foreach collection="array" item="reply" open="( " separator 
 		= ",", </foreach> </delete> -->
