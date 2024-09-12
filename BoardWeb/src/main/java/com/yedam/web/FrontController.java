@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.control.EventContorl;
 import com.yedam.control.JavaScriptControl;
 import com.yedam.control.member.AddFormControl;
 import com.yedam.control.member.AddMemberControl;
@@ -41,6 +42,11 @@ public class FrontController extends HttpServlet {
 		map.put("/intro.do", new IntroControl());
 		map.put("/javascript.do", new JavaScriptControl());
 
+		// 캘린더관련
+		map.put("/eventList.do", new EventContorl());
+		map.put("/addEvent.do", new EventContorl());
+		map.put("/removeEvent.do", new EventContorl());
+		
 		Map<String, Control> memberMenu = MenuMember.getInstance().menuMap();
 		Map<String, Control> boardMenu = MenuBoard.getInstance().menuMap();
 		Map<String, Control> replyMenu = MenuReply.getInstance().menuMap();

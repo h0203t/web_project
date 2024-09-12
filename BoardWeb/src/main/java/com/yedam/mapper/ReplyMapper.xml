@@ -17,11 +17,13 @@
 		reply_no
 	</select>
 
-	<select id="selectListPageing" parameterType="com.yedam.common.SearchDTO">
+	<select id="selectListPageing"
+		parameterType="com.yedam.common.SearchDTO">
 		select b.*
 		from (
 		select /* INDEX (r PK_REPLY) */ rownum rn, r.*
-		from tb1_reply r
+		from
+		tb1_reply r
 		where board_no = #{boardNo}) b
 		<![CDATA[
 		where b.rn <= #{page} * 5
@@ -47,16 +49,34 @@
 		values (#{replyNo}, #{replyer},
 		#{reply}, #{boardNo})
 	</insert>
-	
+
 	<select id="selectReplyCount" parameterType="int">
 		select count(1)
-		from tb1_reply
+		from
+		tb1_reply
 		where board_no = #{bno}
 	</select>
-	
-	
-	
-	
+
+	<select id="selectEvent" useCache="false" resultType="map">
+		select title as "title",
+		start_date as "start",
+		end_date as "end"
+		from tb1_calendar
+	</select>
+
+	<insert id="insertEvent"
+		parameterType="com.yedam.common.SearchDTO">
+		insert into tb1_calendar values(#{title}, #{start},
+		#{end})
+	</insert>
+	<delete id="deleteEvent">
+		delete from tb1_calendar
+		where title = #{title}
+		and start_date = #{start}
+		and end_date = #{end}
+	</delete>
+
+
 	<!-- <delete id="deleteReplys" parameterType="String"> delete from tb1_reply 
 		where reply_no in <foreach collection="array" item="reply" open="( " separator 
 		= ",", </foreach> </delete> -->
