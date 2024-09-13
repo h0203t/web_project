@@ -25,4 +25,7 @@ public interface ReplyMapper {
 	List<Map<String, Object>> selectEvent();
 	int insertEvent(SearchDTO event);
 	int deleteEvent(SearchDTO event);
+	
+	//글작성건수와 작성자 차트.
+	List<Map<String, Object>> countRerWriter();
 }

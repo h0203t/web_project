@@ -58,10 +58,12 @@
 	</select>
 
 	<select id="selectEvent" useCache="false" resultType="map">
-		select title as "title",
+		select
+		title as "title",
 		start_date as "start",
 		end_date as "end"
-		from tb1_calendar
+		from
+		tb1_calendar
 	</select>
 
 	<insert id="insertEvent"
@@ -69,12 +71,24 @@
 		insert into tb1_calendar values(#{title}, #{start},
 		#{end})
 	</insert>
+
 	<delete id="deleteEvent">
 		delete from tb1_calendar
 		where title = #{title}
-		and start_date = #{start}
+		and
+		start_date = #{start}
 		and end_date = #{end}
 	</delete>
+
+	<select id="countRerWriter" resultType="map">
+		select m.member_name as "memberName",
+	 	       writer        as "memberId", 
+	 	       count(1)      as "cnt"
+		from tb1_board b
+		join tb1_member m
+		on b.writer = m.member_id
+		group by writer, m.member_name
+	</select>
 
 
 	<!-- <delete id="deleteReplys" parameterType="String"> delete from tb1_reply 

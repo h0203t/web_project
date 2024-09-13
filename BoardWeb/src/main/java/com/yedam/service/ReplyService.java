@@ -18,4 +18,7 @@ public interface ReplyService {
 	List<Map<String, Object>> eventList();
 	boolean addEvent(SearchDTO event);
 	boolean removeEvent(SearchDTO event);
+	
+	// chart 관련.
+	List<Map<String, Object>> countPerWriter();
 }

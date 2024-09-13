@@ -54,7 +54,6 @@ public class EventContorl implements Control {
 		ReplyService svc = new ReplyServiceImpl();
 
 		List<Map<String, Object>> list = svc.eventList();
-		
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(list);
@@ -108,4 +107,29 @@ public class EventContorl implements Control {
 			e.printStackTrace();
 		}
 	}
+
+	// chart의 json 데이터
+	public void chart(HttpServletRequest request, HttpServletResponse response) {
+	
+		List<Map<String, Object>> list = svc.countPerWriter();
+		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		String json = gson.toJson(list);
+		
+		try {
+			response.getWriter().println(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// chart의 페이지 호출
+	public void showChart(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.getRequestDispatcher("admin/chart.tiles").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }

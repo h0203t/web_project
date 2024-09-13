@@ -46,6 +46,8 @@ public class FrontController extends HttpServlet {
 		map.put("/eventList.do", new EventContorl());
 		map.put("/addEvent.do", new EventContorl());
 		map.put("/removeEvent.do", new EventContorl());
+		map.put("/chart.do", new EventContorl());
+		map.put("/showChart.do", new EventContorl());
 		
 		Map<String, Control> memberMenu = MenuMember.getInstance().menuMap();
 		Map<String, Control> boardMenu = MenuBoard.getInstance().menuMap();
